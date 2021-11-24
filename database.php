@@ -1,7 +1,7 @@
 <?php
-$server = 'gnc353.encs.concordia.ca:3306';
-$username = 'gnc353_2';
-$password = 'Gam3Day7';
+$server = 'localhost:3306';
+$username = 'root';
+$password = '';
 $database = 'gnc353_2';
 
 try {

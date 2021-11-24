@@ -1,6 +1,6 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare('SELECT * FROM gnc353_2/Tables/Appointments');
+$statement = $conn->prepare('SELECT * FROM gnc353_2.Appointments AS Appointements');
 $statement->execute();
 ?>
 
@@ -10,7 +10,7 @@ $statement->execute();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Appointments</title>
 </head>
 <body>
     <table>
@@ -29,9 +29,14 @@ $statement->execute();
                     <td><?= $row['timeSlot'] ?></td>
                     <td><?= $row['firstName'] ?></td>
                     <td><?= $row['lastName'] ?></td>
+                    <td>
+                        <a href='./edit.php?nameOfFacility=<?= $row['nameOfFacility'] ?>?timeSlot=<?= $row['timeSlot'] ?>'>Edit</a>
+                        <a href='./delete.php?nameOfFacility=<?= $row['nameOfFacility'] ?>?timeSlot=<?= $row['timeSlot'] ?>'>Delete</a>
+                    </td>
                 </tr>
             <?php } ?>
         </tbody>
     </table>
+    <a href='./create.php'>Add</a>
 </body>
 </html>
