@@ -1,11 +1,11 @@
 <?php
-$server = 'gnc353.encs.concordia.ca:3306';
-$username = 'gnc353_2';
-$password = 'Gam3Day7';
-$database = 'gnc353_2';
+$dbServername = "gnc353.encs.concordia.ca:3306";
+$dbUsername = "gnc353_2";
+$dbPassword = "Gam3Day7";
+$dbName = "gnc353_2";
 
 try {
-    $conn = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+    $conn = new PDO("mysql:host=$dbServername;dbname=$dbName;", $dbUsername, $dbPassword);
 } catch (PDOException $e) {
     die("Connection failed: " . $e->getMessage());
 }

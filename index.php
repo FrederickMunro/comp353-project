@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>List of Operations</h1>
+    <a href='./PublicHW'>Public Health Worker</a>
+    <a href='./Appointments'>Appointment management</a>
+    <a href='./GroupAge'>Age Groups</a>
 </body>
 </html>
