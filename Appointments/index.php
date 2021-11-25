@@ -13,6 +13,7 @@ $statement->execute();
     <title>Appointments</title>
 </head>
 <body>
+    <h1>Appointment List</h1>
     <table>
         <thead>
             <tr>
@@ -30,8 +31,8 @@ $statement->execute();
                     <td><?= $row['firstName'] ?></td>
                     <td><?= $row['lastName'] ?></td>
                     <td>
-                        <a href='./edit.php?nameOfFacility=<?= $row['nameOfFacility'] ?>?timeSlot=<?= $row['timeSlot'] ?>'>Edit</a>
-                        <a href='./delete.php?nameOfFacility=<?= $row['nameOfFacility'] ?>?timeSlot=<?= $row['timeSlot'] ?>'>Delete</a>
+                        <a href='./edit.php?nameOfFacility=<?= $row['nameOfFacility'] ?>&timeSlot=<?= $row['timeSlot'] ?>'>Edit</a>
+                        <a href='./delete.php?nameOfFacility=<?= $row['nameOfFacility'] ?>&timeSlot=<?= $row['timeSlot'] ?>'>Delete</a>
                     </td>
                 </tr>
             <?php } ?>
