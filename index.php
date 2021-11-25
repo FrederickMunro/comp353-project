@@ -9,5 +9,6 @@
 <body>
     <h1>List of Operations</h1>
     <a href='./Appointments'>Appointment management</a>
+    <a href='./GroupAge'>Age Groups</a>
 </body>
 </html>
