@@ -1,6 +1,6 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare('SELECT * FROM gnc353_2.GroupAge AS GroupAge');
+$statement = $conn->prepare('SELECT * FROM gnc353_2.Provinces AS Provinces');
 $statement->execute();
 ?>
 
@@ -10,29 +10,26 @@ $statement->execute();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Age Groups</title>
+    <title>Provinces</title>
 </head>
 <body>
-    <h1>Age Group List</h1>
+    <h1>Province List</h1>
     <table>
         <thead>
             <tr>
+                <td>Province Name</td>
                 <td>Age Group ID</td>
-                <td>Ages</td>
-                <td>Group Value</td>
             </tr>
         </thead>
         <tbody>
             <?php while ($row = $statement->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) { ?>
                 <tr>
+                    <td><?= $row['name'] ?></td>
                     <td><?= $row['ageGroup'] ?></td>
-                    <td><?= $row['ages'] ?></td>
-                    <td><?= $row['groupValue'] ?></td>
                     <td>
-                        <a href='./edit.php?ageGroup=<?= $row['ageGroup'] ?>'>Edit</a>
-                        <a href='./delete.php?ageGroup=<?= $row['ageGroup'] ?>'>Delete</a>
+                        <a href='./edit.php?name=<?= $row['name'] ?>'>Edit Age Group ID</a>
+                        <a href='./delete.php?name=<?= $row['name'] ?>'>Delete</a>
                     </td>
-
                 </tr>
             <?php } ?>
         </tbody>
