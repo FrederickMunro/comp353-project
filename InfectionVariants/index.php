@@ -1,6 +1,6 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare('SELECT * FROM gnc353_2.GroupAge AS GroupAge');
+$statement = $conn->prepare('SELECT * FROM gnc353_2.InfectionVariants');
 $statement->execute();
 ?>
 
@@ -10,27 +10,24 @@ $statement->execute();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Age Groups</title>
+    <title>Infection Variants</title>
 </head>
 <body>
-    <h1>Age Group List</h1>
+    <h1>Infection Variant List</h1>
     <table>
         <thead>
             <tr>
-                <td>Age Group ID</td>
-                <td>Ages</td>
-                <td>Group Value</td>
+                <td>Name of Variant</td>
+                <td>Date Found</td>
             </tr>
         </thead>
         <tbody>
             <?php while ($row = $statement->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) { ?>
                 <tr>
-                    <td><?= $row['ageGroup'] ?></td>
-                    <td><?= $row['ages'] ?></td>
-                    <td><?= $row['groupValue'] ?></td>
+                    <td><?= $row['nameOfVariant'] ?></td>
+                    <td><?= $row['dateFound'] ?></td>
                     <td>
-                        <a href='./edit.php?ageGroup=<?= $row['ageGroup'] ?>'>Edit</a>
-                        <a href='./delete.php?ageGroup=<?= $row['ageGroup'] ?>'>Delete</a>
+                        <a href='./delete.php?nameOfVariant=<?= $row['nameOfVariant'] ?>&dateFound=<?= $row['dateFound'] ?>'>Delete</a>
                     </td>
                 </tr>
             <?php } ?>

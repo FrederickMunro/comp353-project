@@ -9,7 +9,10 @@
 <body>
     <h1>List of Operations</h1>
     <a href='./PublicHW'>Public Health Worker</a>
+    <a href='./VaccinationFacility'>Vaccination Facilities</a>
     <a href='./Appointments'>Appointment management</a>
     <a href='./GroupAge'>Age Groups</a>
+    <a href='./Infection'>Infections</a> <br>
+    <a href='./InfectionVariants'>Infection Variants</a> <br>
 </body>
 </html>
