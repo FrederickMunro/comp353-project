@@ -1,8 +1,8 @@
 <?php require_once '../database.php';
 
 if(isset($_POST['nameOfFacility']) && isset($_POST['timeSlot']) && isset($_POST['firstName']) && isset($_POST['lastName'])) {
-    $appointment = $conn->prepare('INSERT INTO gnc353_2.Appointments (nameOfFacility, timeSlot, firstName, lastName)
-                                                VALUES (:nameOfFacility, :timeSlot, :firstName, :lastName);');
+    $appointment = $conn->prepare(' INSERT INTO gnc353_2.Appointments (Appointments.nameOfFacility, Appointments.timeSlot, Appointments.firstName, Appointments.lastName)
+                                    VALUES (:nameOfFacility, :timeSlot, :firstName, :lastName);');
 
     $appointment->bindParam(':nameOfFacility', $_POST['nameOfFacility']);
     $appointment->bindParam(':timeSlot', $_POST['timeSlot']);

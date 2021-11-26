@@ -32,6 +32,7 @@ $statement->execute();
                         <a href='./edit.php?ageGroup=<?= $row['ageGroup'] ?>'>Edit</a>
                         <a href='./delete.php?ageGroup=<?= $row['ageGroup'] ?>'>Delete</a>
                     </td>
+
                 </tr>
             <?php } ?>
         </tbody>

@@ -1,6 +1,6 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare('SELECT * FROM gnc353_2.Appointments AS Appointements');
+$statement = $conn->prepare('SELECT * FROM gnc353_2.Appointments');
 $statement->execute();
 ?>
 
@@ -38,6 +38,7 @@ $statement->execute();
             <?php } ?>
         </tbody>
     </table>
-    <a href='./create.php'>Add</a>
+    <a href='./create.php'>Add</a> <br>
+    <a href='../'>Return to menu</a>
 </body>
 </html>

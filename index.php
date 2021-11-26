@@ -16,5 +16,6 @@
     <a href='./InfectionVariants'>Infection Variants</a> 
     <a href='./Provinces'>Provinces</a> 
     <a href='./Vaccines'>Vaccines</a> <br>
+    <a href='./People'>People</a> <br>
 </body>
 </html>
