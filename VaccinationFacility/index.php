@@ -11,6 +11,7 @@ $statement->execute();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vaccination Facilities</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <h1>Vaccination Facility List</h1>
@@ -27,6 +28,7 @@ $statement->execute();
                 <td>Appointsments/WalkIn</td>
                 <td>Web Address</td>
                 <td>Number of Workers</td>
+                <td>Options</td>
             </tr>
         </thead>
         <tbody>

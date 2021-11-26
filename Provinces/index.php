@@ -11,6 +11,7 @@ $statement->execute();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Provinces</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <h1>Province List</h1>
@@ -19,6 +20,7 @@ $statement->execute();
             <tr>
                 <td>Province Name</td>
                 <td>Age Group ID</td>
+                <td>Options</td>
             </tr>
         </thead>
         <tbody>
