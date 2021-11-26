@@ -13,6 +13,8 @@
     <a href='./Appointments'>Appointment management</a>
     <a href='./GroupAge'>Age Groups</a>
     <a href='./Infection'>Infections</a> <br>
-    <a href='./InfectionVariants'>Infection Variants</a> <br>
+    <a href='./InfectionVariants'>Infection Variants</a> 
+    <a href='./Provinces'>Provinces</a> 
+    <a href='./Vaccines'>Vaccines</a> <br>
 </body>
 </html>
