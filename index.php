@@ -12,5 +12,6 @@
     <a href='./Appointments'>Appointment management</a> <br>
     <a href='./GroupAge'>Age Groups</a> <br>
     <a href='./Infection'>Infections</a> <br>
+    <a href='./InfectionVariants'>Infection Variants</a> <br>
 </body>
 </html>
