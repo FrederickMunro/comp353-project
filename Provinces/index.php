@@ -29,7 +29,7 @@ $statement->execute();
                     <td><?= $row['name'] ?></td>
                     <td><?= $row['ageGroup'] ?></td>
                     <td>
-                        <a href='./edit.php?name=<?= $row['name'] ?>'>Edit Age Group ID</a>
+                        <a href='./edit.php?name=<?= $row['name'] ?>'>Edit</a>
                         <a href='./delete.php?name=<?= $row['name'] ?>'>Delete</a>
                     </td>
                 </tr>
