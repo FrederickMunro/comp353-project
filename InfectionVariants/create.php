@@ -24,9 +24,9 @@ if(isset($_POST['nameOfVariant']) && isset($_POST['dateFound'])) {
 <body>
     <h1>Infection Variant Creation</h1>
     <form action='./create.php' method='post'>
-        <label for='nameOfVariant'>Facility</label> <br>
+        <label for='nameOfVariant'>Variant Name</label> <br>
             <input type='text' name='nameOfVariant' id='nameOfVariant'> <br>
-        <label for='dateFound'>Time Slot</label> <br>
+        <label for='dateFound'>Date Found</label> <br>
             <input type='date' name='dateFound' id='dateFound'> <br>
         <button type='submit'>Submit</button> <br>
     </form>
