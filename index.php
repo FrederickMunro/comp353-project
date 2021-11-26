@@ -13,5 +13,6 @@
     <a href='./GroupAge'>Age Groups</a> <br>
     <a href='./Infection'>Infections</a> <br>
     <a href='./InfectionVariants'>Infection Variants</a> <br>
+    <a href='./People'>People</a> <br>
 </body>
 </html>
