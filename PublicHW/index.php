@@ -48,7 +48,7 @@ $statement->execute();
             <?php } ?>
         </tbody>
     </table>
-    <a href='./create.php'>Add</a>
+    <a href='./create.php'>Add</a> <br>
     <a href='../'>Return to menu</a>
 </body>
 </html>
