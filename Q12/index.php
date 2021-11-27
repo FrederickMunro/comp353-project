@@ -1,7 +1,17 @@
 <?php require_once '../database.php';
+$ran = false;
+if(isset($_POST['nameOfFacility']) && isset($_POST['startDate'])) {
+    $statement = $conn->prepare('SELECT * 
+                                 FROM Appointments 
+                                 WHERE nameOfFacility = :nameOfFacility AND timeSlot > :startDate
+                                 LIMIT 1;');
 
-$statement = $conn->prepare('SELECT * FROM gnc353_2.Appointments');
-$statement->execute();
+    $statement->bindParam(':nameOfFacility', $_POST['nameOfFacility']);
+    $statement->bindParam(':startDate', $_POST['startDate']);
+
+    if($statement->execute())
+        $ran = true;
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +24,17 @@ $statement->execute();
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
+    <?php if($ran == false){ ?>
+        <h1>Appointments</h1>
+        <form action='./index.php' method='post'>
+            <label for='nameOfFacility'>Facility Name</label> <br>
+                <input type='text' name='nameOfFacility' id='nameOfFacility'> <br>
+            <label for='startDate'>Date</label> <br>
+                <input type='datetime-local' name='startDate' id='startDate'> <br>
+            <button type='submit'>Submit</button> <br>
+        </form>
+        <a href='../'>Return to menu</a>
+    <?php } else { ?>
     <h1>Appointment List</h1>
     <table>
         <thead>
@@ -22,7 +43,6 @@ $statement->execute();
                 <td>Time Slot</td>
                 <td>First Name</td>
                 <td>Last Name</td>
-                <td>Options</td>
             </tr>
         </thead>
         <tbody>
@@ -32,15 +52,11 @@ $statement->execute();
                     <td><?= $row['timeSlot'] ?></td>
                     <td><?= $row['firstName'] ?></td>
                     <td><?= $row['lastName'] ?></td>
-                    <td>
-                        <a href='./edit.php?nameOfFacility=<?= $row['nameOfFacility'] ?>&timeSlot=<?= $row['timeSlot'] ?>'>Edit</a>
-                        <a href='./delete.php?nameOfFacility=<?= $row['nameOfFacility'] ?>&timeSlot=<?= $row['timeSlot'] ?>'>Delete</a>
-                    </td>
                 </tr>
             <?php } ?>
         </tbody>
     </table>
-    <a href='./create.php'>Add</a> <br>
     <a href='../'>Return to menu</a>
+    <?php } ?>
 </body>
 </html>

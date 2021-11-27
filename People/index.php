@@ -1,6 +1,9 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare('SELECT * FROM gnc353_2.People');
+$statement = $conn->prepare('SELECT * 
+                             FROM  gnc353_2.People
+                             LEFT JOIN gnc353_2.Infection ON People.firstName = Infection.firstName');
+
 $statement->execute();
 ?>
 
@@ -11,6 +14,7 @@ $statement->execute();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>People</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <h1>List of People</h1>
@@ -32,6 +36,9 @@ $statement->execute();
                 <td>Citizenship</td>
                 <td>Email</td>
                 <td>Passport Number</td>
+                <td>Infection Name</td>
+                <td>Infection Date</td>
+                <td>Options</td>
             </tr>
         </thead>
         <tbody>
@@ -52,15 +59,22 @@ $statement->execute();
                     <td><?= $row['citizenship'] ?></td>
                     <td><?= $row['email'] ?></td>
                     <td><?= $row['passportNumber'] ?></td>
+                    <td><?= $row['nameOfInfection'] ?></td>
+                    <td><?= $row['dateOfInfection'] ?></td>
                     <td>
-                        <a href='./edit.php?firstName=<?= $row['firstName'] ?>&lastName=<?= $row['lastName'] ?>&middleInitial=<?= $row['middleInitial'] ?>'>Edit</a>
-                        <a href='./delete.php?firstName=<?= $row['firstName'] ?>&lastName=<?= $row['lastName'] ?>&middleInitial=<?= $row['middleInitial'] ?>'>Delete</a>
+                        <a href='./edit.php?firstName=<?= $row['firstName'] ?>&lastName=<?= $row['lastName'] ?>&middleInitial=<?= $row['middleInitial'] ?>'>Edit Person</a> <br>
+                        <a href='./delete.php?firstName=<?= $row['firstName'] ?>&lastName=<?= $row['lastName'] ?>&middleInitial=<?= $row['middleInitial'] ?>'>Delete Person</a> <br>
+                    <?php if ($row['dateOfInfection'] != NULL) {?>
+                        <a href='./editInfection.php?firstName=<?= $row['firstName'] ?>&lastName=<?= $row['lastName'] ?>&dateOfInfection=<?= $row['dateOfInfection'] ?>'>Edit Infection</a> <br>
+                        <a href='./deleteInfection.php?firstName=<?= $row['firstName'] ?>&lastName=<?= $row['lastName'] ?>&dateOfInfection=<?= $row['dateOfInfection'] ?>'>Delete Infection</a> <br>
+                    <?php } ?>
                     </td>
                 </tr>
             <?php } ?>
         </tbody>
     </table>
-    <a href='./create.php'>Add</a> <br>
+    <a href='./create.php'>Add Person</a> <br>
+    <a href='./createInfection.php'>Add Infection</a> <br>
     <a href='../'>Return to menu</a>
 </body>
 </html>

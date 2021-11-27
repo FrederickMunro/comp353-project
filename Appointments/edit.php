@@ -1,8 +1,8 @@
 <?php require_once '../database.php';
 
 $appointments = $conn->prepare('    SELECT * FROM gnc353_2.Appointments 
-                                    WHERE Appointments.nameOfFacility = :nameOfFacility 
-                                        AND Appointments.timeSlot = :timeSlot;');
+                                    WHERE nameOfFacility = :nameOfFacility 
+                                        AND timeSlot = :timeSlot;');
 $appointments->bindParam(":nameOfFacility", $_GET['nameOfFacility']);
 $appointments->bindParam(":timeSlot", $_GET['timeSlot']);
 $appointments->execute();
@@ -11,12 +11,12 @@ $appointment = $appointments->fetch(PDO::FETCH_ASSOC);
 
 if(isset($_POST['nameOfFacility']) && isset($_POST['timeSlot']) && isset($_POST['firstName']) && isset($_POST['lastName'])) {
     $statement = $conn->prepare('   UPDATE gnc353_2.Appointments 
-                                    SET Appointments.nameOfFacility = :nameOfFacility,
-                                        Appointments.timeSlot = :timeSlot
-                                        Appointments.firstName = :firstName,
-                                        Appointments.lastName = :lastName
-                                    WHERE Appointments.nameOfFacility = :nameOfFacility 
-                                        AND Appointments.timeSlot = :timeSlot;');
+                                    SET nameOfFacility = :nameOfFacility,
+                                        timeSlot = :timeSlot,
+                                        firstName = :firstName,
+                                        lastName = :lastName
+                                    WHERE nameOfFacility = :nameOfFacility 
+                                        AND timeSlot = :timeSlot;');
 
     $statement->bindParam(':nameOfFacility', $_POST['nameOfFacility']);
     $statement->bindParam(':timeSlot', $_POST['timeSlot']);

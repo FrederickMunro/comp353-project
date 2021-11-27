@@ -1,6 +1,6 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare('SELECT * FROM gnc353_2.InfectionVariants');
+$statement = $conn->prepare('SELECT * FROM gnc353_2.WorkSchedule AS WorkSchedule');
 $statement->execute();
 ?>
 
@@ -10,27 +10,31 @@ $statement->execute();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infection Variants</title>
+    <title>Work Schedule</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <h1>Infection Variant List</h1>
+    <h1>Work Schedule List</h1>
     <table>
         <thead>
             <tr>
-                <td>Name of Variant</td>
-                <td>Date Found</td>
+                <td>Public Health Worker ID</td>
+                <td>Facility Name</td>
+                <td>Date</td>
                 <td>Options</td>
             </tr>
         </thead>
         <tbody>
             <?php while ($row = $statement->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) { ?>
                 <tr>
-                    <td><?= $row['nameOfVariant'] ?></td>
-                    <td><?= $row['dateFound'] ?></td>
+                    <td><?= $row['publicHealthWorkerID'] ?></td>
+                    <td><?= $row['nameOfFacility'] ?></td>
+                    <td><?= $row['dayOfWeek'] ?></td>
                     <td>
-                        <a href='./delete.php?nameOfVariant=<?= $row['nameOfVariant'] ?>&dateFound=<?= $row['dateFound'] ?>'>Delete</a>
+                        <a href='./edit.php?publicHealthWorkerID=<?= $row['publicHealthWorkerID'] ?>'>Edit</a>
+                        <a href='./delete.php?publicHealthWorkerID=<?= $row['publicHealthWorkerID'] ?>'>Delete</a>
                     </td>
+
                 </tr>
             <?php } ?>
         </tbody>

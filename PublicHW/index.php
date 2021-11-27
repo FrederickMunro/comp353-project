@@ -11,6 +11,7 @@ $statement->execute();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Public Health Workers</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <h1>Public Health Worker List</h1>
@@ -26,6 +27,7 @@ $statement->execute();
                 <td>Hourly Wage</td>
                 <td>Start Date</td>
                 <td>End Date</td>
+                <td>Options</td>
             </tr>
         </thead>
         <tbody>
@@ -48,6 +50,7 @@ $statement->execute();
             <?php } ?>
         </tbody>
     </table>
-    <a href='./create.php'>Add</a>
+    <a href='./create.php'>Add</a> <br>
+    <a href='../'>Return to menu</a>
 </body>
 </html>
