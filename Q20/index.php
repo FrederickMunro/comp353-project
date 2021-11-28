@@ -1,5 +1,8 @@
 <?php require_once '../database.php';
 $statmentOneRan = false;
+$statmentTwoRan = false;
+$statmentThreeRan = false;
+$statmentFourRan = false;
 if(isset($_POST['firstName']) && isset($_POST['lastName'])){
     $statement = $conn->prepare('SELECT firstName, lastName, dateOfBirth FROM People
                                  WHERE firstName = :firstName AND lastName = :lastName;');
@@ -8,7 +11,8 @@ if(isset($_POST['firstName']) && isset($_POST['lastName'])){
     $statement->bindParam(':lastName', $_POST['lastName']);
 
     if($statement->execute()){
-        $statmentOneRan = true;
+        if($statement->rowCount() > 0)
+            $statmentOneRan = true;
     }
 
     $statementTwo = $conn->prepare('SELECT Appointments.nameOfFacility, Appointments.timeSlot, VaccinationFacility.address 
@@ -19,7 +23,8 @@ if(isset($_POST['firstName']) && isset($_POST['lastName'])){
     $statementTwo->bindParam(':lastName', $_POST['lastName']);
 
     if($statementTwo->execute()){
-        $statmentTwoRan = true;
+        if($statementTwo->rowCount() > 0)
+            $statmentTwoRan = true;
     }
 
     $statementThree = $conn->prepare('SELECT vaccineType, lotNumber, dateOfVaccination, nameOfFacility 
@@ -30,7 +35,8 @@ if(isset($_POST['firstName']) && isset($_POST['lastName'])){
     $statementThree->bindParam(':lastName', $_POST['lastName']);
 
     if($statementThree->execute()){
-        $statmentThreeRan = true;
+        if($statementThree->rowCount() > 0)
+            $statmentThreeRan = true;
     }
 
     $statementFour = $conn->prepare('SELECT dateOfInfection FROM Infection
@@ -40,7 +46,8 @@ if(isset($_POST['firstName']) && isset($_POST['lastName'])){
     $statementFour->bindParam(':lastName', $_POST['lastName']);
 
     if($statementFour->execute()){
-        $statmentFourRan = true;
+        if($statementFour->rowCount() > 0)
+            $statmentFourRan = true;
     }
 }
 ?>
@@ -113,7 +120,7 @@ if(isset($_POST['firstName']) && isset($_POST['lastName'])){
     <?php } ?>
 
     <?php if ($statmentThreeRan == true) { ?>
-        <h1>Vaccination Information</h1>
+        <h2>Vaccination Information</h2>
         <table>
             <thead>
                 <tr>
