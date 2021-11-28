@@ -25,6 +25,11 @@
         <a href='./Q13' id=menu-list>Q13. Nurses Not Working on Date & Facility</a> <br>
         <a href='./Q14' id=menu-list>Q14. Facilities With No Nurses on Date</a> <br>
         <a href='./Q15' id=menu-list>Q15. Facility Schedule</a> <br>
+        <a href='./Q16' id=menu-list>Q16. Vaccination With Appointment</a> <br>
+        <a href='./Q17' id=menu-list>Q17. Vaccination Without Appointment</a> <br>
+        <a href='./Q18' id=menu-list>Q18. Report of Nurses</a> <br>
+        <a href='./Q19' id=menu-list>Q19. Report of Vaccination Facilities</a> <br>
+        <a href='./Q20' id=menu-list>Q20. Report of Person</a> <br>
     </div>
 </body>
 </html>
