@@ -120,7 +120,7 @@ if(isset($_POST['firstName']) && isset($_POST['lastName'])){
     <?php } ?>
 
     <?php if ($statmentThreeRan == true) { ?>
-        <h2>Vaccination Information</h2>
+        <h1>Vaccination Information</h1>
         <table>
             <thead>
                 <tr>

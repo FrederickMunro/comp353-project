@@ -45,12 +45,12 @@ if(isset($_POST['nameOfFacility']) && isset($_POST['requestedDate'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointments</title>
+    <title>Schedule</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <?php if($ran == false){ ?>
-        <h1>Appointments</h1>
+        <h1>Schedule</h1>
         <form action='./index.php' method='post'>
             <label for='nameOfFacility'>Facility Name</label> <br>
                 <input type='text' name='nameOfFacility' id='nameOfFacility'> <br>

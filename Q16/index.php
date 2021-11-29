@@ -83,7 +83,7 @@ WHERE firstName = :firstName AND lastName = :lastName AND nameOfFacility = :name
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointments</title>
+    <title>Appointments Only!</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -92,7 +92,7 @@ WHERE firstName = :firstName AND lastName = :lastName AND nameOfFacility = :name
     <a href='../'>Return to menu</a>
     <?php } 
     else if($ran == false && $noAppointment == false){ ?>
-        <h1>Appointments</h1>
+        <h1>Appointments Only!</h1>
         <form action='./index.php' method='post'>
             <label for='firstName'>First Name</label> <br>
                 <input type='text' name='firstName' id='firstName'> <br>
