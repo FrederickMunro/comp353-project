@@ -11,7 +11,7 @@
     <h1>List of Operations</h1> <br>
     <div id='menu'>
         <a href='./People' id=menu-list>People</a> <br>
-        <a href='./Infection' id=menu-list>Infections</a> <br>
+        <!--<a href='./Infection' id=menu-list>Infections</a> <br>-->
         <a href='./PublicHW' id=menu-list>Public Health Worker</a> <br>
         <a href='./VaccinationFacility' id=menu-list>Vaccination Facilities</a> <br>
         <a href='./Vaccines' id=menu-list>Vaccines</a> <br>

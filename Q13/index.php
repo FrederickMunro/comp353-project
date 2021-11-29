@@ -6,6 +6,7 @@ if(isset($_POST['nameOfFacility']) && isset($_POST['requestedDate'])) {
                                  INNER JOIN People ON PublicHealthWorker.firstName = People.firstName
                                  INNER JOIN WorkSchedule ON PublicHealthWorker.employeeID = WorkSchedule.publicHealthWorkerID
                                  Where PublicHealthWorker.typeOfWorker = "Nurse" AND PublicHealthWorker.nameOfFacility = :nameOfFacility AND WorkSchedule.dayOfWeek != :requestedDate
+                                 GROUP BY employeeID
                                  ORDER BY hourlyWage ASC;');
 
     $statement->bindParam(':nameOfFacility', $_POST['nameOfFacility']);
@@ -22,12 +23,12 @@ if(isset($_POST['nameOfFacility']) && isset($_POST['requestedDate'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointments</title>
+    <title>Nurses Schedule</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <?php if($ran == false){ ?>
-        <h1>Appointments</h1>
+        <h1>Nurses Schedule</h1>
         <form action='./index.php' method='post'>
             <label for='nameOfFacility'>Facility Name</label> <br>
                 <input type='text' name='nameOfFacility' id='nameOfFacility'> <br>
@@ -37,7 +38,7 @@ if(isset($_POST['nameOfFacility']) && isset($_POST['requestedDate'])) {
         </form>
         <a href='../'>Return to menu</a>
     <?php } else { ?>
-    <h1>Appointment List</h1>
+    <h1>Nurses Schedule</h1>
     <table>
         <thead>
             <tr>

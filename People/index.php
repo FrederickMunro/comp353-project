@@ -1,6 +1,6 @@
 <?php require_once '../database.php';
 
-$statement = $conn->prepare('SELECT * 
+$statement = $conn->prepare('SELECT People.*, Infection.nameOfInfection, Infection.dateOfInfection 
                              FROM  gnc353_2.People
                              LEFT JOIN gnc353_2.Infection ON People.firstName = Infection.firstName');
 

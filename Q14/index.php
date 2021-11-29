@@ -26,12 +26,12 @@ if(isset($_POST['requestedDate'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointments</title>
+    <title>Facility Schedule</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <?php if($ran == false){ ?>
-        <h1>Appointments</h1>
+        <h1>Facilities Missing Nurses</h1>
         <form action='./index.php' method='post'>
             <label for='requestedDate'>Date</label> <br>
                 <input type='date' name='requestedDate' id='requestedDate'> <br>
@@ -39,7 +39,7 @@ if(isset($_POST['requestedDate'])) {
         </form>
         <a href='../'>Return to menu</a>
     <?php } else { ?>
-    <h1>Appointment List</h1>
+    <h1>Facilities Missing Nurses</h1>
     <table>
         <thead>
             <tr>

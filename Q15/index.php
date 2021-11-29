@@ -1,6 +1,7 @@
 <?php require_once '../database.php';
 $ran = false;
 $ranTwo = false;
+$noRecords = false;
 if(isset($_POST['nameOfFacility']) && isset($_POST['requestedDate'])) {
     $statement = $conn->prepare('SELECT PublicHealthWorker.firstName, PublicHealthWorker.lastName, PublicHealthWorker.typeOfWorker, WorkSchedule.dayOfWeek
                                  FROM PublicHealthWorker
@@ -11,7 +12,12 @@ if(isset($_POST['nameOfFacility']) && isset($_POST['requestedDate'])) {
     $statement->bindParam(':requestedDate', $_POST['requestedDate']);
 
     if($statement->execute())
-        $ran = true;
+        if($statement->rowCount() > 0)
+            $ran = true;
+        else{
+            $ran = true;
+            $noRecords = true;
+        }
 
     $statementTwo = $conn->prepare('SELECT * FROM Appointments
                                     WHERE nameOfFacility = :nameOfFacility AND timeSlot > :morningTime AND timeSlot < :nightTime AND firstName IS NOT NULL;');
@@ -52,6 +58,9 @@ if(isset($_POST['nameOfFacility']) && isset($_POST['requestedDate'])) {
                 <input type='date' name='requestedDate' id='requestedDate'> <br>
             <button type='submit'>Submit</button> <br>
         </form>
+        <a href='../'>Return to menu</a>
+    <?php } else if($noRecords == true) { ?>
+        <h1>No Records Found!</h1>
         <a href='../'>Return to menu</a>
     <?php } else { ?>
     <h1>Worker Schedule</h1>
